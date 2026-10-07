@@ -1,0 +1,20 @@
+name: Test Website
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Verify index.html Exists
+        run: |
+          test -f index.html
+          echo "index.html found"
+
+      - name: Workflow Success
+        run: echo "Website test passed!"
